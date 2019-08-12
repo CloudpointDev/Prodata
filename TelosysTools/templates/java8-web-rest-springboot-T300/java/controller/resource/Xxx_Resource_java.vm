@@ -1,0 +1,74 @@
+## Include
+#parse("include/var_entity.vm")
+## Use macro resolve header
+#package($SRC)
+
+## Use macro resolve imports
+#imports($entity.attributes false)
+import javax.validation.constraints.NotNull;
+
+
+
+/**
+ * Hateoas resource associated with ${entityClass}.
+ * $author
+ */
+public class $resourceClass  {
+
+#foreach($field in $entity.attributes)
+## Because id is reserved in parent class !
+#if($field.name == 'id')
+	// Because id is reserved in parent class, we can't override the getter.
+	
+#end
+	#if($field.isNotNull())
+	@NotNull
+	#end
+	   private $field.type $field.name;  
+#end
+
+	// Constructor
+	public $resourceClass() {
+		// Needed empty constructor for serialization
+	}
+
+#foreach($field in $entity.attributes)
+#if ($field.getter && $field.name != 'id')    
+	public $field.type ${field.getter}() {
+		return this.$field.name;
+	}
+#end
+#if ($field.setter)    
+	public void ${field.setter}($field.type $field.name) {
+		this.$field.name = $field.name;
+	}
+#end
+#end
+
+	public String toString() {
+		StringBuilder sb = new StringBuilder(); 
+	sb.append("${resourceClass}");
+#if($compositeKey)
+		sb.append("[" + compositePrimaryKey + "]"); 
+#else
+#foreach( $field in $entity.keyAttributes )
+#if( $foreach.count  > 1 )
+		sb.append("|"); 
+#end
+		sb.append("$field.name :");
+		sb.append($field.name); 
+#end 
+#end
+#foreach( $field in $entity.nonKeyAttributes )
+#if( $foreach.count  > 1 )
+		sb.append("|"); 
+#end
+		sb.append("$field.name :");
+		sb.append($field.name); 
+#end
+        return sb.toString();
+    }
+
+}
+
+

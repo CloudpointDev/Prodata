@@ -1,0 +1,42 @@
+{
+	"generator-jhipster": {
+		"promptValues": {
+			"packageName": "com.cpa.prodata",
+			"nativeLanguage": "en"
+		},
+		"jhipsterVersion": "6.0.0",
+		"applicationType": "monolith",
+		"baseName": "ProData",
+		"packageName": "com.cpa.prodata",
+		"packageFolder": "com/cpa/prodata",
+		"serverPort": "8080",
+		"authenticationType": "jwt",
+		"cacheProvider": "ehcache",
+		"enableHibernateCache": true,
+		"websocket": false,
+		"databaseType": "sql",
+		"devDatabaseType": "h2Disk",
+		"prodDatabaseType": "postgresql",
+		"searchEngine": false,
+		"messageBroker": false,
+		"serviceDiscoveryType": false,
+		"buildTool": "maven",
+		"enableSwaggerCodegen": false,
+		"jwtSecretKey": "MjdmNmUzZmM1YmFkNzA0MTJhMDYyNTkxMmI4NjIzZDQ4NTk3OTY5ODk0ZTYzMDQyNDE1ZjJmMjFmNjdiOWYxODNlODIyYzg0MjEwNmI4YzA3MmY2YjE3ZDNhOGE5MzIzODBiOTFjYWY2OGQzYjdiMDcyNGI2NThjMTY3OTZkN2I=",
+		"clientFramework": "angularX",
+		"clientTheme": "none",
+		"clientThemeVariant": "",
+		"useSass": true,
+		"clientPackageManager": "npm",
+		"testFrameworks": [],
+		"jhiPrefix": "jhi",
+		"entitySuffix": "",
+		"dtoSuffix": "DTO",
+		"otherModules": [],
+		"enableTranslation": true,
+		"nativeLanguage": "en",
+		"languages": [
+			"en"
+		]
+	}
+}

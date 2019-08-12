@@ -1,0 +1,20 @@
+/* Style the submit button */
+input[type=submit], button {
+	background-color: #ae285d;
+	color: white;
+	padding: 12px 40px;
+	border: none;
+	border-radius: 20px;
+	cursor: pointer;
+	margin: 5px;
+}
+
+.page {
+	position: absolute;
+	width: 592px; /*image width */
+	height: 512px; /*image height */
+	left: 50%;
+	top: 50%;
+	margin-left: -296px; /*image width/2 */
+	margin-top: -256px; /*image height/2 */
+}

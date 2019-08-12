@@ -1,0 +1,12 @@
+.tablehead {
+	text-align: center;
+	background-color: #a62659;
+	color: azure
+}
+
+h1 {
+	padding: 10px;
+	font-size: 30px;
+	color: #a62659;
+	text-align: center
+}

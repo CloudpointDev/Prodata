@@ -1,0 +1,41 @@
+
+<div class="heading">SRM LOGIN</div>
+<body>
+	<div class="zoom">
+		<form [formGroup]="logForm" (ngSubmit)="onLogin()">
+			<div class="login-container ">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="form-group">
+							<label>Login ID</label> <input type="email"
+								formControlName="loginid" required
+								class="form-control">
+							<div
+								*ngIf='logForm.get("loginid").touched && logForm.get("loginid").invalid'
+								class=" alert-danger">Login Id is required!</div>
+						</div>
+					</div>
+					<div class="col-md-12">
+						<div class="form-group">
+							<label>Password</label> <input type="password"
+								formControlName="password"  required
+								required class="form-control">
+							<div
+								*ngIf='logForm.get("password").touched && logForm.get("password").invalid'
+								class=" alert-danger">Password is must!</div>
+						</div>
+					</div>
+					<div class="col-md-7">
+						<div class="form-group">
+							<button class="zoomout btn btn-success pull-right">Login</button>
+							<div class="clearfix"></div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12"></div>
+				</div>
+			</div>
+		</form>
+	</div>
+</body>

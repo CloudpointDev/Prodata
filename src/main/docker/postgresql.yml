@@ -1,0 +1,11 @@
+version: '2'
+services:
+  prodata-postgresql:
+    image: postgres:11.2
+    # volumes:
+    #     - ~/volumes/jhipster/ProData/postgresql/:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=ProData
+      - POSTGRES_PASSWORD=
+    ports:
+      - 5432:5432

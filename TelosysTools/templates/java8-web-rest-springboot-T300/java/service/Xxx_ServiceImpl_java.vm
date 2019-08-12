@@ -1,0 +1,140 @@
+## Include
+#parse("include/var_entity.vm")
+## Use macro resolve header
+#package($SRC)
+## use macro for feed $haveCriteria
+#haveCriteria()
+## Generate criteria file only if needed
+#if($haveCriteria)
+#set($packageWithDot = ${ROOT_PKG})
+#set($packageWithSlash = $packageWithDot.replace(".", "/"))
+$generator.generate($target.entityName ,  "${criteriaClass}.java", "${SRC}/${packageWithSlash}/service/criteria" , "java/service/criteria/Xxx_Criteria_java.vm"  )
+#end
+#if($haveCriteria)
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+#end
+import ${pack_entity}.${entityClass};
+#if($compositeKey)
+import ${pack_entity}.${entityKeyClass};
+#end
+import ${pack_repository}.${repositoryClass};
+import ${pack_resource}.${resourceClass};
+#if($haveCriteria)
+import ${pack_criteria}.${criteriaClass};
+#end
+import ${pack_service}.${serviceInterface};
+import ${pack_mapper}.${mapperClass};
+import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+
+#if($haveCriteria)
+import org.springframework.data.jpa.domain.Specification;
+#end
+import org.springframework.stereotype.Service;
+import java.util.Collections;
+import java.util.List;
+/**
+ * Service implementation for ${entityClass}.
+ * $author
+ */
+@Service
+public class $serviceClass implements $serviceInterface {
+
+private static final Logger LOG = Logger.getLogger(${serviceClass}.class);
+
+	@Autowired
+	private $repositoryClass $repositoryInstance;
+
+	@Autowired
+	private $mapperClass $mapperInstance;
+
+	
+		
+
+	public ${resourceClass} persist${entityClass}(${resourceClass} ${resourceInstance}persist){
+	try{
+	if(${resourceInstance}persist !=null){
+		
+
+	 ${entityClass} $entityInstance = ${mapperInstance}.convert${resourceClass}ToEntity(${resourceInstance}persist);
+	 ${entityClass} ${entityInstance}In =  ${repositoryInstance}.saveAndFlush($entityInstance);
+	return (${entityInstance}In !=null) ?  ${mapperInstance}.convertEntityTo${entityClass}DTO(${entityInstance}In) : null;
+	}
+}
+		catch (Exception e){
+			LOG.error("Error while inserting ${entityClass} {} ", e);
+		}
+return null;
+	}
+
+#foreach( $attrib in $entity.attributes )
+ public ${resourceClass} retrieve${entityClass}ById($attrib.type $attrib.name){
+
+	try {
+		
+			${entityClass} $entityInstance = ${repositoryInstance}.findById($attrib.name).get();
+			return (${entityInstance} != null) ?  ${mapperInstance}.convertEntityTo${entityClass}DTO($entityInstance) :null;
+		}
+		catch (Exception e){
+			LOG.error("Error Message",e);
+		}
+		return null;
+	}
+#break
+#end
+
+public List<${resourceClass}> retrieveAll${entityClass}(){
+try {
+List<${entityClass}> ${entityInstance}List = ${repositoryInstance}.findAll();
+return( ${entityInstance}List != null) ?  ${mapperInstance}.entityListTo${resourceClass}List(${entityInstance}List) : null;
+		}
+		catch (Exception e){
+			LOG.error("Error message",e);
+		}
+		return Collections.emptyList();
+
+}
+
+public 	${resourceClass} modify${entityClass}(${resourceClass} ${resourceInstance}Update){
+	try{
+	if(${resourceInstance}Update !=null){
+		#foreach($field in $entity.keyAttributes)
+			${entityClass}  ${entityInstance} = ${repositoryInstance}.findById(${resourceInstance}Update.${field.getter}()).get();
+#break
+#end
+	 ${entityClass} ${entityInstance}Update =  ${repositoryInstance}.save($entityInstance);
+	return (${entityInstance}Update !=null) ?  ${mapperInstance}.convertEntityTo${entityClass}DTO(${entityInstance}Update) : null;
+					
+	}
+}
+	catch (Exception e){
+			LOG.error("Error while updating ${entityClass} {} ", e);
+		}
+return null;
+	}
+
+#foreach( $attrib in $entity.attributes)
+public void deleteById($attrib.type $attrib.name){
+
+
+
+}
+
+#break
+#end
+
+
+}
+
+
+
+
+
+
+
+
+
+
+

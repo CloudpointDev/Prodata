@@ -1,0 +1,23 @@
+## Include
+#parse("include/var_entity.vm")
+## Use macro resolve header
+#package($SRC)
+## use macro key type resolver
+#keyResolver()
+
+import ${pack_entity}.${entityClass};
+#if($compositeKey)
+import ${pack_entity}.${entityKeyClass};
+#end
+import javax.transaction.Transactional;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+import org.springframework.stereotype.Repository;
+
+/**
+ * Jpa repository for $entityClass.
+ * $author
+ */
+@Transactional
+@Repository
+public interface $repositoryClass  extends JpaRepository<$entityClass, $keyType> {}

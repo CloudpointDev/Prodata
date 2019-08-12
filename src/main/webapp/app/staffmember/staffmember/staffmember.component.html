@@ -1,0 +1,90 @@
+<div class="heading">
+  <label>Add Staff Information</label>
+</div>
+
+<div class="card">
+  <form [formGroup]="AddStaffForm" (ngSubmit)="processForm()">
+   
+    <div class="row">
+      <div class="col-25">
+        <label> Name : </label>
+      </div>
+      <div class="col-75">
+        <input formControlName="name" type="text" name="name" class="form-control">
+        <div *ngIf='AddStaffForm.get("name").touched && AddStaffForm.get("name").invalid' class=" alert-danger">
+          Name is required!
+
+        </div>
+      </div>
+
+    
+    </div>
+
+    <div class="row">
+      <div class="col-25">
+        <label> Last Name : </label>
+      </div>
+      <div class="col-75">
+        <input formControlName="lname" type="text" name="lname" class="form-control">
+        <div *ngIf='AddStaffForm.get("lname").touched && AddStaffForm.get("lname").invalid' class=" alert-danger">
+         Last Name is required!
+
+        </div>
+      </div>
+
+    
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label>  Username : </label>
+      </div>
+      <div class="col-75">
+        <input formControlName="username" type="text" name="username" class="form-control">
+        <div *ngIf='AddStaffForm.get("username").touched && AddStaffForm.get("username").invalid' class=" alert-danger">
+          username is required!
+
+        </div>
+      </div>
+
+    
+    </div>
+ 
+    <div class="row">
+      <div class="col-25">
+        <label>Password : </label>
+      </div>
+      <div class="col-75">
+        <input formControlName="password" type="password" name="password" class="form-control" >
+        <div *ngIf='AddStaffForm.get("password").touched && AddStaffForm.get("password").invalid' class=" alert-danger">
+          password is required
+
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+			<div class="col-25">
+				<label>Role : </label>
+			</div>
+			<div class="col-75">
+				<select formControlName="roles" class='select-option' required>
+					<option class='option' *ngFor='let roles of staffRoles'
+						[(ngValue)]="roles.role">{{roles.role}}</option>
+				</select>
+			</div>
+		</div>
+
+    <div class="col-25">
+      <!-- <ng-template #customLoadingTemplate> -->
+      <input type="submit" class="zoomout" value="Save"  style=" background:#ae285d "> 
+    
+      <!-- </ng-template> -->
+      <!-- <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '0px' }" [template]="customLoadingTemplate"></ngx-loading> -->
+    </div>
+    <input type="reset" value="Reset"  class="zoomout" style="background:#ae285d  ; margin: 20px ; margin-left:  50px ; margin-top :0px ; " >
+    <input type="submit" value="Cancel" class="zoomout" (click)="onHomePage()" style="background:#ae285d  ; margin: 15px ; margin-right: 20px ; margin-top :10px" > 
+  </form>
+   
+  
+
+</div>

@@ -1,0 +1,62 @@
+<div class="card">
+
+	<h1>
+		<strong>List of Uploaded Files</strong>
+	</h1>
+	<table id="datatables"
+		class="table table-striped table-condensed table-hover" width="50%">
+		<ngx-loading [show]="loading"></ngx-loading>
+		<thead class="tablehead">
+			<tr>
+				<th>{{ dataTable.headerRow[0] }}</th>
+				<th>{{ dataTable.headerRow[1] }}</th>
+			</tr>
+
+		</thead>
+
+		<!-- <tfoot>
+      <tr>
+      <th class="tablehead">{{ dataTable.footerRow[0] }}</th>
+      <th class="tablehead">{{ dataTable.footerRow[1] }}</th>
+      <th class="tablehead">{{ dataTable.footerRow[2] }}</th>
+      <th class="tablehead">{{ dataTable.footerRow[3] }} </th>
+      <th class="tablehead"> {{ dataTable.footerRow[4] }}</th>
+      <th class="tablehead">{{ dataTable.footerRow[5] }}</th>
+    </tr>
+     
+    </tfoot> -->
+
+		<tbody>
+
+			<tr *ngFor="let file of dataTable.dataRows">
+
+				<td><a class="butn" type="submit"
+					(click)=viewFile(file.id)><span tooltip
+						content="You can have any html or plain text content here">{{file.name}}
+					</span></a></td>
+				<td width="10%">
+					<button class="zoomout btn " (click)="downloadFile(file.id)"
+						style="background: transparent">
+						<i class=" fa fa-download" style="color: #28a745; font-size: 20px"></i>
+					</button>
+			</tr>
+
+
+		</tbody>
+
+	</table>
+
+	<div *ngIf="viewImage">
+	<img alt="Image" src={{fileSrc}} />
+	</div>
+	<div *ngIf="viewPdf">
+<pdf-viewer [src]="fileSrc" 
+[render-text]="false"
+style="display: block;"
+></pdf-viewer>
+</div>
+</div>
+
+
+
+

@@ -1,0 +1,141 @@
+<meta charset="utf-8">
+<div class="bg">
+	<div class="heading">
+		<label class>Student Relatives Information</label>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-4 col-lg-2 col-sm-4 move-right">
+		<button (click)="homepage()" class="zoomout button" style="background: #ae285d">Go Home</button>
+	</div>
+</div>
+
+
+
+<div class="container">
+	<div class="alert-danger margin">
+		<div class="col-md-10 col-lg-10 col-sm-10">
+			<ui *ngFor="let student of students">
+				<li class="data">Candidate name: {{student.name}}</li>
+				<li class="data">Roll No : {{student.rollno}}</li>
+			</ui>
+		</div>
+		<button type="button" class="zoomout button" id="button" (click)="getFileList()"
+			style="background: #ae285d; margin: 10px">View
+			Files</button>
+	</div>
+
+	<br>
+	<div class="card-content ">
+		<div *ngIf="statusError" class="alert alert-danger" data-icon-bg-color="alert-red">
+			<strong>Please Fill All Fields!</strong>
+		</div>
+	</div>
+	<div class="card-content ">
+			<div *ngIf="statusCode === 201" class="alert alert-success" data-icon-bg-color="alert-red">
+				<strong>Relative Added Successfully</strong>
+			</div>
+</div>
+			<div class="formSave">
+				<form [formGroup]="AddRelativeForm" (ngSubmit)="onSubmit()">
+
+					<table *ngIf="isDisabled" id="insertDatatables"
+						class="table table-striped table-condensed table-hover" width="100%">
+						<thead>
+
+							<tr>
+								<th class="tablehead">{{ dataTable.headerRow[0] }}</th>
+								<th class="tablehead">{{ dataTable.headerRow[1] }}</th>
+								<th class="tablehead">{{ dataTable.headerRow[2] }}</th>
+								<th class="tablehead"></th>
+							</tr>
+						</thead>
+
+						<tbody>
+
+							<tr>
+
+								<td>
+
+									<div>
+										<input formControlName="name" type="text" class='form-control'>
+										<div *ngIf='AddRelativeForm.get("name").touched && AddRelativeForm.get("name").invalid'
+											placeholder="Name" class=" alert-danger">Name is
+											required!</div>
+									</div>
+								</td>
+								<td>
+									<div class="form-group">
+										<select formControlName="relation" class='select-option' required>
+											<option class='option' *ngFor='let rel of relations' [(ngValue)]="rel.name">
+												{{rel.name}}</option>
+										</select>
+									</div>
+								</td>
+								<td>
+									<div class="form-group">
+										<input formControlName="mob" id="mobNo" class="form-control">
+										<div *ngIf='AddRelativeForm.get("mob").touched && AddRelativeForm.get("mob").invalid'
+											class=" alert-danger">Mobile Number is Required</div>
+									</div>
+								</td>
+								<td>
+									<button type="submit" class="zoomout button " id="button"
+										style="background: #ae285d; margin-left: 10px" value="Add Relative">Add
+										Relative</button>
+								</td>
+							</tr>
+
+						</tbody>
+					</table>
+				</form>
+			</div>
+			<div class="row">
+
+				<table id="datatables" *ngIf="isPresent"
+					class="table table-striped table-responsive table-condensed table-hover" width="100%">
+
+					<thead class="tablehead">
+
+						<tr>
+							<th class="tablehead">{{ dataTable.headerRow[0] }}</th>
+							<th class="tablehead">{{ dataTable.headerRow[1] }}</th>
+							<th class="tablehead">{{ dataTable.headerRow[2] }}</th>
+							<th class="  tablehead">{{ dataTable.headerRow[3] }}</th>
+						</tr>
+
+					</thead>
+
+					<!-- <tfoot>
+        <tr>
+          <th class="tablehead">{{ dataTable.footerRow[0] }}</th>
+          <th class="tablehead">{{ dataTable.footerRow[1] }} </th>
+          <th class="tablehead"> {{ dataTable.footerRow[2] }}</th>
+          <th class="tablehead">{{ dataTable.footerRow[3] }}</th>
+        </tr>
+
+  
+      </tfoot> -->
+
+					<tbody>
+						<tr *ngFor="let relative of dataTable.dataRows">
+
+							<td style="text-align: center" width="10%">{{relative.name}}
+							</td>
+							<td style="text-align: center" width="10%">{{relative.relation}}</td>
+							<td style="text-align: center" width="10%">{{relative.mobNo}}</td>
+
+
+							<td style="text-align: center" width="10%">
+
+								<button class="zoomout btn " (click)="deleteRelative(relative.id)"
+									style="background: transparent">
+									<i class="fa fa-trash " style="color: red; font-size: 20px"></i>
+								</button></td>
+
+						</tr>
+					</tbody>
+				</table>
+
+			</div>

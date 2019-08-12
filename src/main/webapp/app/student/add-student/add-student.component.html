@@ -1,0 +1,73 @@
+<div class="heading">
+  <label>Student Information</label>
+</div>
+
+<div class="container">
+
+  <form [formGroup]="AddForm" (ngSubmit)="processForm()">
+    <ngx-loading [show]="loading"></ngx-loading>
+    <div class="row">
+      <div class="col-25">
+        <label> Name : </label>
+      </div>
+      <div class="col-75">
+        <input formControlName="name" type="text" name="name" class="form-control">
+        <div *ngIf='AddForm.get("name").touched && AddForm.get("name").invalid' class=" alert-danger">
+          Name is required!
+
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <label>Date of Birth : </label>
+      </div>
+      <div class="col-75">
+        <input formControlName="dob" type="date" name="dob" [options]="options">
+        <div *ngIf='AddForm.get("dob").touched && AddForm.get("dob").invalid' class="alert-danger">
+          Date of birth is required
+
+        </div>
+      </div>
+    </div>
+ 
+    <div class="row">
+      <div class="col-25">
+        <label>Class : </label>
+      </div>
+      <div class="col-75">
+        <input formControlName="std" type="text" name="std" class="form-control" >
+        <div *ngIf='AddForm.get("std").touched && AddForm.get("std").invalid' class=" alert-danger">
+          Class is require</div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-25">
+        <label>Address : </label>
+      </div>
+      <div class="col-75">
+        <textarea formControlName="address" type="textarea" name="address" class="form-control"></textarea>
+      </div>
+    </div>
+    <!-- <div>
+            <span>Select</span>
+            <select>
+                <option *ngFor ="let data of Data">{{data}}</option>
+            </select>
+      </div> -->
+
+    <div class="col-25">
+      <!-- <ng-template #customLoadingTemplate> -->
+      <input type="submit" class="zoomout" value="Save"  style=" background:#ae285d "> 
+    
+      <!-- </ng-template> -->
+      <!-- <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '0px' }" [template]="customLoadingTemplate"></ngx-loading> -->
+    </div>
+    <input type="reset" value="Reset"  class="zoomout" style="background:#ae285d  ; margin: 20px ; margin-left:  50px ; margin-top :0px ; " >
+    <input type="submit" value="Cancel" class="zoomout" (click)="onHomePage()" style="background:#ae285d  ; margin: 15px ; margin-right: 20px ; margin-top :10px" > 
+  </form>
+   
+  
+
+</div>

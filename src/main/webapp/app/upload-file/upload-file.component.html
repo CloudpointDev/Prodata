@@ -1,0 +1,32 @@
+<div class="page">
+	<p>
+	<li>Do not Forget to rename the file that you want to upload. For
+		ex. If you want to upload aadhar Card then rename file as 'AadharCard'
+	</li>
+	<li>Preview the selected File</li>
+	<li>Click on Upload</li> <strong> <ui>Note: Only PNG and
+		PDF files are supported</ui></strong>
+	</p>
+
+
+	<label class="btn btn-default"> <!-- <input type="file" (change)="selectFile($event)"> -->
+		<div *ngIf="currentFileUpload" class="progress">
+			<div class="progress-bar progress-bar-info progress-bar-striped"
+				role="progressbar" attr.aria-valuenow="{{progress.percentage}}"
+				aria-valuemin="0" aria-valuemax="100"
+				[ngStyle]="{width:progress.percentage+'%'}">
+				{{progress.percentage}}%</div>
+		</div> <input #file type="file" accept='application/pdf,image/*'
+		(change)="preview(file.files)" /> <img [src]="imgURL" height="400"
+		width="600" *ngIf="imgURL"> <!-- <input #file type="file"  (change)="preview(file.files)" />
+<img [src]="imgURL" height="400" width="600" *ngIf="imgURL"> -->
+	</label>
+
+	<button class="btn" [disabled]="!selectedFiles" (click)="upload()">Upload</button>
+	<input type="submit" value="Cancel" class="zoomout"
+		(click)="onHomePage()">
+	<!-- 
+<div>
+  <app-listfiles></app-listfiles>
+</div> -->
+</div>

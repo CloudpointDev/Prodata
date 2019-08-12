@@ -1,0 +1,112 @@
+.btn {
+	background-color: DodgerBlue;
+	border: none;
+	color: white;
+	padding: 12px 16px;
+	font-size: 16px;
+	cursor: pointer;
+}
+
+/* Darker background on mouse-over */
+.btn:hover {
+	background-color: RoyalBlue;
+}
+
+/* .form {
+    display: block;
+    width: 30%;
+    height: calc(2.25rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+} */
+.bg {
+	width: 100%;
+	height: 100%;
+	background-position: top center;
+	background-size: cover;
+}
+
+td {
+	text-align: center;
+}
+
+.tablehead {
+	text-align: center;
+	background-color: #ae285d;
+	color: azure;
+}
+
+.button {
+	background-color: #28a745;
+	border: none;
+	color: white;
+	padding: 9px 10px;
+	font-size: 12px;
+	cursor: pointer;
+	border-radius: 12px
+}
+
+.butn {
+	border-color: none;
+	border: none;
+	background-color: white;
+	padding: 5px 10px;
+	font-size: 14px;
+	color: black;
+	cursor: pointer;
+	display: inline-block;
+}
+
+.heading {
+	padding: 10px;
+	font-size: 30px;
+	color: #a62659;
+	text-align: center
+}
+
+input[type=text], select, textarea {
+	width: 12%;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+	resize: vertical;
+}
+
+.tooltip {
+	position: relative;
+	display: inline-block;
+	border-bottom: 1px dotted black;
+	/* If you want dots under the hoverable text */
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+	visibility: hidden;
+	width: 120px;
+	background-color: black;
+	color: #fff;
+	text-align: center;
+	padding: 5px 0;
+	border-radius: 6px;
+	/* Position the tooltip text - see examples below! */
+	position: absolute;
+	z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+	visibility: visible;
+}
+
+.zoomout:hover {
+	transform: scale(0.8)
+}
+
+

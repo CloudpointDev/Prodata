@@ -1,0 +1,67 @@
+<div class="heading">
+	<label>Relative Information</label>
+</div>
+
+<div class="container">
+
+	<form [formGroup]="AddForm" (ngSubmit)="onSubmit()">
+		<ngx-loading [show]="loading"></ngx-loading>
+
+
+		<div class="row">
+			<div class="col-25">
+				<label> Name : </label>
+			</div>
+			<div class="col-75">
+				<input formControlName="name" type="text" name="name"
+					class='form-control'>
+				<div
+					*ngIf='AddForm.get("name").touched && AddForm.get("name").invalid'
+					class=" alert-danger">Name is required!</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-25">
+				<label>Mobile : </label>
+			</div>
+			<div class="col-75">
+				<input formControlName="mob" type="text" name="mob"
+					class="form-control">
+				<div
+					*ngIf='AddForm.get("mob").touched && AddForm.get("mob").invalid'
+					class=" alert-danger">Mobile Number is Required and Should Be
+					of 10 Digits</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-25">
+				<label>Relation : </label>
+			</div>
+			<div class="col-75">
+				<select formControlName="relation" class='select-option' required>
+					<option class='option' *ngFor='let relative of relations'
+						[(ngValue)]="relative.name">{{relative.name}}</option>
+				</select>
+			</div>
+		</div>
+
+
+		<div class="col-25">
+
+			<input type="submit" class="zoomout" id="button" value="Save"
+				style="background: #ae285d">
+
+			<!-- </ng-template> -->
+			<!-- <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '0px' }" [template]="customLoadingTemplate"></ngx-loading> -->
+		</div>
+		<input type="reset" class="zoomout" value="Reset"
+			style="background: #ae285d; margin: 20px; margin-left: 50px; margin-top: 10px">
+		<input type="submit" class="zoomout" value="Cancel"
+			(click)="onHomePage()"
+			style="background: #ae285d; margin: 20px; margin-right: 30px; margin-top: 10px">
+
+	</form>
+
+</div>

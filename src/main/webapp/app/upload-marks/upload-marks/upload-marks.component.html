@@ -1,0 +1,23 @@
+<div class="container border">
+    <div class="page">
+        <p>
+          <li>Do not Forget to rename the file that you want to upload. i.e StudentMarks.csv
+          </li>
+          <li>Click on Upload</li> <strong> <ui>Note: Extension for the file to upload is .csv</ui></strong>
+          </p>
+          <div class="uploadStyle">
+<div *ngIf="currentFileUpload" class="progress">
+  <div class="progress-bar progress-bar-info progress-bar-striped"
+    role="progressbar" attr.aria-valuenow="{{progress.percentage}}"
+    aria-valuemin="0" aria-valuemax="100"
+    [ngStyle]="{width:progress.percentage+'%'}">
+    {{progress.percentage}}%</div>
+</div> <input #file type="file" accept=".csv" multiple
+(change)="preview(file.files)" /> 
+
+<button class="btn" [disabled]="!selectedFiles" (click)="upload()">Upload</button>
+	<input type="submit" value="Cancel" class="zoomout"
+    (click)="onPage()">
+    </div>
+    </div>
+  </div>

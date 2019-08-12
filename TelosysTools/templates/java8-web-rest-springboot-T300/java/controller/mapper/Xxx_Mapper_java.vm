@@ -1,0 +1,29 @@
+## Include
+#parse("include/var_entity.vm")
+## Use macro resolve header
+#package($SRC)
+
+import java.util.List;
+
+import ${pack_resource}.$resourceClass;
+import ${pack_entity}.$entityClass;
+
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+/**
+ * $resourceClass's Mapper declaration using selma.
+ * $author
+ */
+@Mapper(componentModel = "spring")
+public abstract class $mapperClass {
+
+	// This will build a fresh new $resourceClass with in infos
+		
+public abstract  $resourceClass convertEntityTo${entityClass}DTO($entityClass entity);
+	
+public abstract  $entityClass  convert${resourceClass}ToEntity( $resourceClass dto);
+
+
+
+public abstract List<$resourceClass>  entityListTo${resourceClass}List(List<$entityClass> list);
+}

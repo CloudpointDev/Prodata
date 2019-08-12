@@ -1,0 +1,66 @@
+.login-container {
+	max-width: 400px;
+	margin: 65px auto 0;
+	margin-top: 10px;
+}
+
+.border {
+	border-style: solid;
+}
+
+.error {
+	color: tomato;
+	font-size: 12px;
+	padding-top: 4px
+}
+
+.heading {
+	padding: 60px;
+	padding-left: 0px;
+	font-size: 30px;
+	color: #a62659;
+	text-align: center
+}
+
+form {
+	margin: 0;
+	padding: 5rem 0;
+	border: 2px solid #ae285d;
+}
+
+.btn {
+	display: inline-block;
+	padding: 10px 30px;
+	margin-bottom: 0;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 1.42857143;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	touch-action: manipulation;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	background-image: none;
+	border: 1px solid transparent;
+	border-radius: 4px;
+	background: #ae285d
+}
+
+.zoom {
+	padding: -50px;
+	background-color: white;
+	transition: transform .1s; /* Animation */
+	width: 50%;
+	height: 100%;
+	margin: 0 auto;
+}
+
+
+
+.zoomout:hover {
+	transform: scale(0.8)
+}
