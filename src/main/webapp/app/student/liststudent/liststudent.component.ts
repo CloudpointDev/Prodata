@@ -143,6 +143,11 @@ export class ListstudentComponent implements OnInit {
 
  }
 
+ addStaff(){
+   this.loading=false;
+     this._router.navigate(['/addStaff']);
+  }
+
   adminCheck() {
     this.roleguard.roleCheck()
       .subscribe(successCode => {
@@ -159,13 +164,7 @@ export class ListstudentComponent implements OnInit {
   }
 
 
-  addStaff() {
-    const dialogRef = this.dialog.open(StaffmemberComponent, {
-      width: '540px',
-    });
-    dialogRef.afterClosed().subscribe(result => {
-  });
-  }
+  
 
 }
 

@@ -65,7 +65,7 @@ const routes: Routes = [
     component: ListfilesComponent,
   },
   {
-    path:'addMember',
+    path:'addStaff',
     component: StaffmemberComponent,
   },
   {
