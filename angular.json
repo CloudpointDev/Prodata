@@ -25,11 +25,11 @@
 							"src/assets"
 						],
 						"styles": [
-							"node_modules/bootstrap/dist/css/bootstrap.min.css",
-							"node_modules/bootstrap/dist/css/bootstrap.css",
-							"node_modules/font-awesome/css/font-awesome.css",
+							"./node_modules/bootstrap/dist/css/bootstrap.min.css",
+							"./node_modules/bootstrap/dist/css/bootstrap.css",
+							"./node_modules/font-awesome/css/font-awesome.css",
 							"src/styles.css",
-							"node_modules/datatables.net-dt/css/jquery.dataTables.css"
+							"./node_modules/datatables.net-dt/css/jquery.dataTables.css"
 						],
 						"stylePreprocessorOptions": {
 							"includePaths": [
@@ -37,14 +37,15 @@
 							]
 						  },
 						"scripts": [
-							"node_modules/jquery/dist/jquery.js",
-							"node_modules/jquery/dist/jquery.min.js",
-							"node_modules/bootstrap/dist/js/bootstrap.js",
-							"node_modules/bootstrap/dist/js/bootstrap.min.js",
-							"node_modules/datatables.net/js/jquery.dataTables.js",
-							"node_modules/datatables.net/js/jquery.dataTables.min.js",
-							"node_modules/@swimlane/ngx-datatable/release/themes/material.css",
-							"node_modules/@swimlane/ngx-datatable/release/assets/icons.css"
+							"./node_modules/jquery/dist/jquery.min.js",
+							"./node_modules/jquery/dist/jquery.js",
+							"./node_modules/jquery/dist/jquery.min.js",
+							"./node_modules/bootstrap/dist/js/bootstrap.js",
+							"./node_modules/bootstrap/dist/js/bootstrap.min.js",
+							"./node_modules/datatables.net/js/jquery.dataTables.js",
+							"./node_modules/datatables.net/js/jquery.dataTables.min.js",
+							"./node_modules/@swimlane/ngx-datatable/release/themes/material.css",
+							"./node_modules/@swimlane/ngx-datatable/release/assets/icons.css"
 						]
 					},
 					"configurations": {

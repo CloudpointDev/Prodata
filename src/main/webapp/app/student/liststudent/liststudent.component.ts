@@ -14,6 +14,7 @@ import { UploadMarksComponent } from '../../upload-marks/upload-marks/upload-mar
 import { StaffMemberService } from '../../sharedservices/staffMemberService.service';
 import { Http } from '@angular/http';
 import { StaffmemberComponent } from '../../staffmember/staffmember/staffmember.component';
+import { NgxSmartModalService } from 'ngx-smart-modal';
 
 
 declare interface DataTable {
@@ -36,6 +37,7 @@ export class ListstudentComponent implements OnInit {
   private students: Student
   isAdmin: boolean = false;
   statusCode: any;
+  display='none'; //default Variable
   showUploadMarksModal: boolean = false;
   loading: NgxLoadingModule
   public dataTable: DataTable = {
@@ -43,7 +45,7 @@ export class ListstudentComponent implements OnInit {
     footerRow: ['Roll No', 'Name', 'Class', 'Date of Birth ', 'Address', 'Action'],
     dataRows: []
   };
-  constructor(private studServices: StudentServicesService, private _router: Router, public dialog: MatDialog, private roleguard: StaffMemberService) { }
+  constructor(private studServices: StudentServicesService, private _router: Router, public dialog: MatDialog, private roleguard: StaffMemberService,public ngxSmartModalService: NgxSmartModalService) { }
 
 
   ngOnInit() {
@@ -111,6 +113,14 @@ export class ListstudentComponent implements OnInit {
     this._router.navigate(['/'])
   }
 
+  openModalDialog(){
+    this.display='block'; //Set block css
+ }
+
+ closeModalDialog(){
+  this.display='none'; //set none css after close dialog
+ }
+
   // updateUser(student) {
   //   this.loading = false;
   //    this._router.navigate(['/srm'])
@@ -144,7 +154,6 @@ export class ListstudentComponent implements OnInit {
  }
 
  addStaff(){
-   this.loading=false;
      this._router.navigate(['/addStaff']);
   }
 

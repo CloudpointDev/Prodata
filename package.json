@@ -52,9 +52,11 @@
 		"ng2-pdf-viewer": "^5.2.4",
 		"ngx-datatable": "^1.0.3",
 		"ngx-loading": "^3.0.1",
+		"ngx-smart-modal": "^7.1.1",
 		"node-pre-gyp": "^0.13.0",
 		"rxjs": "^6.3.3",
 		"rxjs-compat": "^6.3.3",
+		"web-animations-js": "^2.3.2",
 		"zone.js": "~0.8.26"
 	},
 	"devDependencies": {

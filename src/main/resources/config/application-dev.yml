@@ -42,7 +42,7 @@ spring:
     password: Pass1word
     data-password: avgnktresdfgmlpo  
     hikari:
-      poolName: Hikari
+      poolName: Prodata
       auto-commit: false
   h2:
     console:

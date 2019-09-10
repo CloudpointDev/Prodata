@@ -27,11 +27,12 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { UploadMarksComponent } from './upload-marks/upload-marks/upload-marks.component';
 import { ModalService } from './sharedservices/modal.service';
-import {MatDialogModule } from '@angular/material';
+import {MatDialogModule, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { AuthGuard } from './shared/auth-guard';
 import { StaffmemberModule } from './staffmember/staffmember.module';
 import { StaffmemberComponent } from './staffmember/staffmember/staffmember.component';
 import { StaffMemberService } from './sharedservices/staffMemberService.service';
+import { NgxSmartModalModule } from 'ngx-smart-modal';
 
 @NgModule({
   
@@ -50,15 +51,15 @@ UploadMarksComponent,
 
   ],
   imports: [
-  
     BrowserModule,
     PdfViewerModule,
+    NgxSmartModalModule.forRoot(),
     AppRoutingModule,
     HttpModule,
     FormsModule,
-    MatDialogModule,
     ReactiveFormsModule,
     RelativesModule,
+    MatDialogModule,
     StaffmemberModule,
     BrowserAnimationsModule,
     NgxDatatableModule,
@@ -72,12 +73,15 @@ UploadMarksComponent,
   }),
     ReactiveFormsModule,
     NgDatepickerModule,
-    HttpClientModule
+    HttpClientModule,
+    
    
 
   ],
  schemas: [NO_ERRORS_SCHEMA],
-  providers: [StudentServicesService,RelativesService,ModalService,AuthGuard,StaffMemberService],
+  providers: [StudentServicesService,RelativesService,ModalService,AuthGuard,StaffMemberService,{ provide: MatDialogRef, useValue: {} },
+    { provide: MAT_DIALOG_DATA, useValue: [] },],
+ 
   bootstrap: [AppComponent]
   
 })

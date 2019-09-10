@@ -68,16 +68,15 @@ public class StudentDataServiceImpl implements StudentDataService {
 	}
 
 	public StudentDataDTO retrieveStudentDataById(Long rollno) {
-		Long rollNo=(long) 85;
 		try {
 			
-			StudentData studentData = studentDataRepository.findById(rollNo).get();
+			StudentData studentData = studentDataRepository.findById(rollno).get();
 			return (studentData != null) ? studentDataMapper.convertEntityToStudentDataDTO(studentData) : null;
 		} catch (Exception e) {
 			StringWriter sw = new StringWriter();
 			e.printStackTrace(new PrintWriter(sw));
-			String exceptionAsString = "Error while retreiving StudentData By Roll No: " + rollNo + sw.toString();
-			mailService.sendEmail("somesh.biswas95@gmail.com", "Exception in Prodata", exceptionAsString, false, false);
+			String exceptionAsString = "Error while retreiving StudentData By Roll No: " + rollno + sw.toString();
+			mailService.sendEmail("prodata.dev.ind@gmail.com", "Exception in Prodata", exceptionAsString, false, false);
 			LOG.error("Error Message", e);
 		}
 		return null;
@@ -91,7 +90,7 @@ public class StudentDataServiceImpl implements StudentDataService {
 			StringWriter sw = new StringWriter();
 			e.printStackTrace(new PrintWriter(sw));
 			String exceptionAsString = "Error while retreiving all StudentData {} " + sw.toString();
-			mailService.sendEmail("somesh.biswas95@gmail.com", "Exception in Prodata", exceptionAsString, false, false);
+			mailService.sendEmail("prodata.dev.ind@gmail.com", "Exception in Prodata", exceptionAsString, false, false);
 			LOG.error("Error message", e);
 		}
 		return Collections.emptyList();
@@ -112,7 +111,7 @@ public class StudentDataServiceImpl implements StudentDataService {
 			e.printStackTrace(new PrintWriter(sw));
 			String exceptionAsString = "Error while modifying StudentData {} " + studentDataDTOUpdate.getRollno()
 					+ sw.toString();
-			mailService.sendEmail("somesh.biswas95@gmail.com", "Exception in Prodata", exceptionAsString, false, false);
+			mailService.sendEmail("prodata.dev.ind@gmail.com", "Exception in Prodata", exceptionAsString, false, false);
 			LOG.error("Error while updating StudentData {} ", e);
 		}
 		return null;
@@ -128,7 +127,7 @@ public class StudentDataServiceImpl implements StudentDataService {
 			StringWriter sw = new StringWriter();
 			e.printStackTrace(new PrintWriter(sw));
 			String exceptionAsString = "Error while deleting StudentData {}" + rollno + sw.toString();
-			mailService.sendEmail("somesh.biswas95@gmail.com", "Exception in Prodata", exceptionAsString, false, false);
+			mailService.sendEmail("prodata.dev.ind@gmail.com", "Exception in Prodata", exceptionAsString, false, false);
 			LOG.error("Error while updating StudentData {} ", e);
 		}
 

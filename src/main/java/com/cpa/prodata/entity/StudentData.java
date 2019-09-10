@@ -8,6 +8,8 @@ import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.*;
 
+import org.hibernate.envers.Audited;
+
 /**
  * Persistent class for StudentData entity stored in table student_data.
  * This class is a "record entity" without JPA links.
@@ -15,6 +17,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name="student_data", schema="public" )
+@Audited
 public class StudentData implements Serializable {
 
 	private static final long serialVersionUID = 1L;

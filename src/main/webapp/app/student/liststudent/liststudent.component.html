@@ -14,14 +14,28 @@
 		<div class="col-md-6 col-lg-6 col-sm-6">
 			<button class="zoomout button" (click)="newUser()" style="background: #ae285d">Add Student</button>
 			
-			<button class="zoomout button" (click)="uploadMarks()" style="background: #ae285d; margin: 10px">Upload Marks</button>
+			<button class="zoomout button" (click)="ngxSmartModalService.getModal('uploadMarksModal').open()" style="background: #ae285d; margin: 10px">Upload Marks</button>
 
-			<button class="zoomout button" (click)="addStaff()" style="background: #ae285d; margin: 10px">Add Staff</button>
+			<button class="zoomout button" (click)="ngxSmartModalService.getModal('addStaffModal').open()" style="background: #ae285d; margin: 10px">Add Staff</button>
 		</div>
 		</div>
 
 
 </div>
+<!-- Modal View -->
+<ngx-smart-modal #addStaffModal identifier="addStaffModal">
+<app-staffmember></app-staffmember>
+	<button (click)="addStaffModal.close()">Close</button>
+  </ngx-smart-modal>
+
+  <ngx-smart-modal #uploadMarksModal identifier="uploadMarksModal">
+	<app-upload-marks></app-upload-marks>
+		<button (click)="uploadMarksModal.close()">Close</button>
+	  </ngx-smart-modal>
+
+
+
+<!-- Modal View End -->
 
 <div class="bg">
 	<div class="container" style="padding: 0.75rem">

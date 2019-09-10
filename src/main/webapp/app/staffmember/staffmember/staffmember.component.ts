@@ -87,9 +87,9 @@ maxDate = new Date();
      placeholder: 'Click to select date' ,
   };
   
-  onHomePage(){
-    this.dialogRef.close();
-   }
+  // onHomePage(){
+  //   this.dialogRef.close();
+  //  }
     
   
 
