@@ -46,7 +46,7 @@
 		"jquery-modal": "^0.9.2",
 		"jwthelper": "0.0.4",
 		"material-design-icons": "^3.0.1",
-		"moment": "^2.24.0",
+		"moment": "^2.29.4",
 		"nan": "^2.14.0",
 		"ng2-datepicker": "^3.1.1",
 		"ng2-pdf-viewer": "^5.2.4",
